@@ -1,0 +1,45 @@
+.card {
+    border-radius:  4px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+.card .card-body {
+    padding: 15px 15px 10px;
+}
+.card-root .card-body .description {
+    font-size: 1.8rem;
+    text-align: right;
+}
+.card-root .card-body .description p {
+    margin-bottom: 0;
+}
+.card .card-title {
+    margin: 0;
+    color: #333;
+    font-weight: 300;
+}
+.card .card-footer {
+    padding: 0 15px 10px;
+    background-color: transparent;
+    line-height: 30px;
+    border-top: none!important;
+    font-size: 14px;
+}
+.card .card-footer hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.card .action {
+    color: #a9a9a9;
+    display: inline-block;
+}
+.card .action div{
+    width: 18px!important;
+    padding-right: 10px;
+}
+.card-root .icon-big {
+    font-size: 3em;
+    min-height: 64px;
+    font-weight: 700;
+    line-height: 59px;
+}
