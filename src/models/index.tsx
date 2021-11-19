@@ -15,6 +15,11 @@ export interface RootIconSet {
 	color?: string;
 }
 
+export interface TableKeysSet {
+	keys: string[];
+	otherInfoKey: string[];
+}
+
 export type ResourceResult = {
 	name: string;
 	title: string;

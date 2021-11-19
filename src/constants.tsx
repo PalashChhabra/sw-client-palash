@@ -1,4 +1,4 @@
-import { RootIconSet } from './models';
+import { RootIconSet, TableKeysSet } from './models';
 
 export const FETCH_ROOTS = '@@internal/FETCH_ROOTS';
 export const FETCH_ROOTS_FAILURE = '@@internal/FETCH_ROOTS_FAILURE';
@@ -40,5 +40,32 @@ export const RootAttributes : {[key : string] : RootIconSet} = {
 	[RootKeys.Vehicles]: {
 		color: 'magenta',
 		icon: 'car',
+	},
+};
+
+export const ResourceAttributes : {[key : string] : TableKeysSet} = {
+	[RootKeys.Films]: {
+		keys: ['title', 'episode_id', 'director', 'producer', 'release_date'],
+		otherInfoKey: ['characters'],
+	},
+	[RootKeys.People]: {
+		keys: ['height', 'mass', 'gender', 'birth_year', 'hair_color', 'skin_color'],
+		otherInfoKey: ['films'],
+	},
+	[RootKeys.Planets]: {
+		keys: ['climate', 'diameter', 'terrain', 'population', 'rotation_period', 'orbital_period'],
+		otherInfoKey: ['residents'],
+	},
+	[RootKeys.Species]: {
+		keys: ['classification', 'language', 'average_lifespan', 'average_height', 'designation', 'skin_colors'],
+		otherInfoKey: ['people'],
+	},
+	[RootKeys.Starships]: {
+		keys: ['model', 'manufacturer', 'cost_in_credits', 'passengers', 'cargo_capacity', 'crew'],
+		otherInfoKey: ['films'],
+	},
+	[RootKeys.Vehicles]: {
+		keys: ['model', 'manufacturer', 'cost_in_credits', 'length', 'cargo_capacity', 'vehicle_class'],
+		otherInfoKey: ['films'],
 	},
 };
