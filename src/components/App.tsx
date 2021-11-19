@@ -1,5 +1,6 @@
 import { APPROUTES } from '../app-routes/routes';
 import { ReactComponent as CuvvaLogo } from '../assets/icons/cuvva.svg';
+import { Link } from 'react-router-dom';
 import { Container, NavbarBrand, NavbarText } from 'reactstrap';
 import { LayoutWrapper, NavWrapper } from '../styles/styles';
 import React, { FC } from 'react';
@@ -11,6 +12,7 @@ const App: FC<Props> = ({ children }) => (
 	<LayoutWrapper>
 		<NavWrapper>
 			<NavbarBrand href={APPROUTES.Home}> <CuvvaLogo /></NavbarBrand>
+			<Link to={{ pathname: APPROUTES.Home }}>{'Home'}</Link>
 			<NavbarText>
 				<a
 					href="https://palashchhabra.com"
