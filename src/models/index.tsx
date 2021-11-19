@@ -1,3 +1,6 @@
+import IonIcon from '@reacticons/ionicons';
+import React from 'react';
+
 export type Root = {
   films: string;
   people: string;
@@ -7,16 +10,24 @@ export type Root = {
   vehicles: string;
 };
 
-export enum RootKeys {
-   Films = 'films',
-   People = 'people',
-   Planets = 'planets',
-   Species = 'species',
-   Starships = 'starships',
-   Vehicles = 'vehicles',
+export interface RootIconSet {
+	icon : React.ComponentProps<typeof IonIcon>['name'];
+	color?: string;
 }
 
-export type RootType = typeof RootKeys;
+export type ResourceResult = {
+	name: string;
+	title: string;
+	url: string;
+	[x: string]: string | string[];
+};
+
+export type Resource = {
+	count?: number;
+	next?: string;
+	previous?: string;
+	results: ResourceResult[];
+};
 
 export type Payload = Root;
 
@@ -35,6 +46,11 @@ export type Action = {
 export interface Istate {
   roots: {
     payload: Root;
+    isLoading: boolean;
+    error: Error;
+  };
+  resource: {
+    payload: ResourceResult[];
     isLoading: boolean;
     error: Error;
   };

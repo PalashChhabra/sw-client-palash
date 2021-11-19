@@ -19,6 +19,21 @@ export const LayoutWrapper = styled.div`
   --centerHeight: 4rem;
 `;
 
+export const Title = styled.div`
+text-transform: capitalize;
+ color: #fff;
+ margin-bottom: 20px;
+ font-size: 4rem;
+ justify-content:center;
+ text-align:center;
+ @media ${breakpoints.tablet} {
+  font-size: 2rem;
+}
+@media ${breakpoints.mobile} {
+  font-size: 1rem;
+}
+`;
+
 export const NavWrapper = styled.nav`
 background: rgb(5, 2, 36);
 position: sticky;
@@ -63,29 +78,49 @@ left: 0;
 display: grid;
 place-content: center;
 box-sizing: border-box;
-  img {
+  svg {
     width: 15rem;
     height: 15rem;
     object-fit: contain;
     padding: 5%;
     box-sizing: border-box;
-  }
+    path {
+      fill: #fff;
+    }
+}
 `;
 
-export const RootCardItem = styled.div`
-:hover {
-  transform: scale(1.05);
-}
+export const CardItem = styled.div`
 display: flex;
 flex-direction: column;
 min-width: 0;
 background-clip: border-box;
-border: 1px solid rgba(0,0,0,.125);
-border-radius:  4px;
+border: 5px solid transparent;
+border-radius:  1em;
 background-color: #fff;
-margin-bottom: 30px;
-cursor: pointer;
+margin-bottom: 30px;`;
+
+export const RootCardItem = styled(CardItem)`
+&.hoverable:hover {
+  transform: scale(1.05);
+}
+a:hover {
+  text-decoration: none;
+}
+
+&:before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(to right,#ff8ba7, #F9BC41);
+}
+&:hover .action {
+  color: #333!important;
+}
 .card-body {
+  cursor: pointer;
     padding: 15px 15px 10px;
     & .description {
         font-size: 1.5rem;
@@ -97,7 +132,7 @@ cursor: pointer;
             font-weight: 300;
             text-transform: uppercase;
             @media ${breakpoints.tablet} {
-              font-size: 1 rem;
+              font-size: 1rem;
             }
             @media ${breakpoints.mobile} {
               font-size: 0.75rem;
@@ -122,6 +157,7 @@ cursor: pointer;
         margin-bottom: 5px;
         }
     & .action {
+      cursor: pointer;
         color: #a9a9a9;
         display: inline-block;
         & div{
@@ -130,6 +166,26 @@ cursor: pointer;
         }
 
     }
+}
+`;
+
+export const ListCardItem = styled(CardItem)`
+background: 
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(to right, rgb(5, 2, 36), rgb(166, 68, 226)) border-box;
+  border-radius: 1em;
+`;
+
+export const ResourceTitle = styled.h6`
+text-transform:capitalize;
+font-weight:600;
+color: ${props => (props.color || 'black')}
+font-size: 2rem;
+@media ${breakpoints.tablet} {
+  font-size: 1rem;
+}
+@media ${breakpoints.mobile} {
+  font-size: 0.9rem;
 }
 `;
 

@@ -1,9 +1,11 @@
+import { APPROUTES } from './app-routes/routes';
 import App from './components/App';
 import { GlobalStyle } from './styles/styles';
-import Home from './components/Home';
+import Home from './pages/Home';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ResourceDetails from './pages/ResourceDetails';
 import createStore from './store';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,7 +18,11 @@ const routes = (
 				<Switch>
 					<Route component={Home}
 						exact
-						path={'/'}
+						path={APPROUTES.Home}
+					/>
+					<Route component={ResourceDetails}
+						exact
+						path={APPROUTES.Resource}
 					/>
 				</Switch>
 			</App>

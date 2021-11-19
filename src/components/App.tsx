@@ -1,3 +1,4 @@
+import { APPROUTES } from '../app-routes/routes';
 import { ReactComponent as CuvvaLogo } from '../assets/icons/cuvva.svg';
 import { Container, NavbarBrand, NavbarText } from 'reactstrap';
 import { LayoutWrapper, NavWrapper } from '../styles/styles';
@@ -9,7 +10,7 @@ interface Props {
 const App: FC<Props> = ({ children }) => (
 	<LayoutWrapper>
 		<NavWrapper>
-			<NavbarBrand href={'/'}> <CuvvaLogo /></NavbarBrand>
+			<NavbarBrand href={APPROUTES.Home}> <CuvvaLogo /></NavbarBrand>
 			<NavbarText>
 				<a
 					href="https://palashchhabra.com"
@@ -19,7 +20,9 @@ const App: FC<Props> = ({ children }) => (
 					{'Palash Chhabra'}</a></NavbarText>
 		</NavWrapper>
 
-		<Container className={'pt-5'}>{children}</Container>
+		<Container className={'p-5'}
+			fluid={'true'}
+		>{children}</Container>
 	</LayoutWrapper>
 );
 

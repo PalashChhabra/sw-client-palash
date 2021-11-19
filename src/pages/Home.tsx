@@ -1,7 +1,8 @@
 
 import { Istate } from '../models';
-import { Loader } from './Loader';
-import RootCard from './CardComponent';
+import { Loader } from '../components/Loader';
+import RootCard from '../components/CardComponent';
+import { Title } from '../styles/styles';
 import { fetchRoots } from '../actions';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,17 +22,19 @@ const Home = () => {
 			{roots.isLoading ? (
 				<Loader />
 			) : (
-				<div className="row">
-					{// @ts-ignore
-						rootTypes.map((type: string, index: number) => (
-							<div className="col-lg-4 col-sm-6"
-								key={index}
-							>
-								<RootCard type={type}/>
-							</div>
-						),
-						)}
-				</div>) }
+				<>
+					<Title>{'The Force Awakens'}</Title>
+					<div className="row">
+						{// @ts-ignore
+							rootTypes.map((type: string, index: number) => (
+								<div className="col-lg-4 col-sm-6"
+									key={index}
+								>
+									<RootCard type={type}/>
+								</div>
+							),
+							)}
+					</div></>) }
 		</>
 
 	);

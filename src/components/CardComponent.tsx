@@ -1,58 +1,66 @@
+import { APPROUTES } from '../app-routes/routes';
 import IonIcon from '@reacticons/ionicons';
-import { RootKeys } from '../models';
+import { Link } from 'react-router-dom';
+import { RootAttributes } from '../constants';
 import { ColouredIcon, RootCardItem } from '../styles/styles';
-import React, { FC } from 'react';
-
-interface RootIconSet {
-	keyName : RootKeys;
-	icon : React.ComponentProps<typeof IonIcon>['name'];
-    color?: string;
-}
+import React, { FC, useState } from 'react';
+import { getFavs, toggleFav } from '../utils/storageFunctions';
 
 interface Props {
     type: string;
   }
 
 const RootCard: FC<Props> = ({ type }) => {
-	const iconSet : RootIconSet[] = [
-		{ keyName: RootKeys.People, icon: 'people', color: 'orange' },
-		{ keyName: RootKeys.Films, icon: 'film', color: 'grey' },
-		{ keyName: RootKeys.Planets, icon: 'planet', color: 'blue' },
-		{ keyName: RootKeys.Species, icon: 'skull', color: 'green' },
-		{ keyName: RootKeys.Starships, icon: 'rocket', color: 'purple' },
-		{ keyName: RootKeys.Vehicles, icon: 'car', color: 'red' },
-	];
+	const [favs, setFavs] = useState<string[]>(getFavs());
+	const toggleFavorite = (type: string) => {
+		toggleFav(type);
+		setFavs(getFavs());
+	};
 
-	return (<>	<RootCardItem>
+	return (<>	<RootCardItem className="hoverable">
 		<div className="card-body">
-			<div className="row">
-				<div className="col-6">
-					<div className="icon-big text-center">
-						{iconSet
-							.filter((arrItem : RootIconSet) => arrItem.keyName === type)
-							.map((filterItem, index) => (
-								<ColouredIcon color={filterItem.color}
-									key={index}
+			<Link to={{ pathname: APPROUTES.Resource, state: { type } }}>
+				<div className="row">
+					<div className="col-6">
+						<div className="icon-big text-center">
+							{
+								<ColouredIcon color={RootAttributes[type].color}
+									key={type}
 								>
 									<IonIcon
-										name={filterItem.icon}
+										name={RootAttributes[type].icon}
 									/>
 								</ColouredIcon>
-							))}
+							}
+						</div>
+					</div>
+					<div className="col-6 align-self-center">
+						<div className="description text-center">
+							<h4 className="card-title">{type}</h4>
+						</div>
 					</div>
 				</div>
-				<div className="col-6 align-self-center">
-					<div className="description text-center">
-						<h4 className="card-title">{type}</h4>
-					</div>
-				</div>
-			</div>
+			</Link>
 		</div>
+
 		<div className="card-footer">
 			<hr />
-			<div className="action">
-				<IonIcon name={'heart-circle'}/>
-				{'Bookmark'}</div>
+			<div className="action"
+				onClick={e => {
+					e.stopPropagation();
+					toggleFavorite(type);
+				}}
+			>
+				     {favs.includes(type) ? (
+					<><ColouredIcon color="red">	<IonIcon name={'heart-circle'}/> </ColouredIcon>
+						<span>{'Bookmarked!'}</span></>
+				) : (
+					<>
+						<IonIcon name={'heart-outline'}/>
+						<span>{'Bookmark'}</span>
+					</>
+				)}
+			</div>
 		</div>
 	</RootCardItem></>);
 };

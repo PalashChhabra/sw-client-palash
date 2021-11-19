@@ -1,13 +1,9 @@
-/* eslint-disable no-undef */
-/* eslint-disable global-require */
 import { Loading } from '../styles/styles';
+import { ReactComponent as LoadingIcon } from '../assets/icons/loading.svg';
 import React from 'react';
 
 export const Loader = () => (
 	<Loading>
-		<img
-			alt="Loader"
-			src={require('../assets/icons/loading.svg').default}
-		/>
+		<LoadingIcon />
 	</Loading>
 );
