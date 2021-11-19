@@ -48,6 +48,7 @@ const ResourceTable: FC<Props> = ({ type, resource }) => {
 			</CardHeader>
 			<CardBody className="p-2">
 				<Table borderless
+					responsive
 					size="sm"
 				>
 					<thead>

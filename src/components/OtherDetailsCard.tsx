@@ -37,17 +37,17 @@ const OtherDetailsCard: FC<Props> = ({ showTable, url }) => {
 		{ !otherDetails.isLoading ? hideTable ? <DetailsCard>
 			<CardBody>
 				<div className="row">
-					<div className="col-6">
+					<div className="col-lg-6">
 						<ul>
 							{otherDetailsDataKeys.map((keyName, index) => (
 								!Array.isArray(otherDetails.payload[keyName]) ? <li key={index}>
 									<span>{transformText(keyName)}</span>
-									{':'}
+									{' : '}
 									<span>{otherDetails.payload[keyName]}</span></li> :	null
 							))}
 						</ul>
 					</div>
-					<div className="col-6 align-self-center">
+					<div className="col-lg-6 align-self-center">
 						<img alt="Star Wars"
 							className="h-auto mw-100"
 							src={starwars.default}
