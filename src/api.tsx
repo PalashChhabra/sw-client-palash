@@ -1,4 +1,4 @@
-import { Resource, Root } from './models';
+import { Resource, ResourceResult, Root } from './models';
 //  Next Step : Move URLs to environment file
 const clientURL: string = 'https://swapi.dev/api/';
 
@@ -15,4 +15,12 @@ export const getResource = async (root: string): Promise<Resource> => {
 	const resp = await res.json();
 
 	return resp.results;
+};
+
+// gets resource Details for a provided endpoint
+export const getResourceDetail = async (apiUrl: string): Promise<ResourceResult> => {
+	const res = await fetch(`${apiUrl}`);
+	const resp = await res.json();
+
+	return resp;
 };

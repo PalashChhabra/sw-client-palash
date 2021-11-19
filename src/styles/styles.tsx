@@ -70,6 +70,7 @@ a:hover {
 `;
 
 export const Loading = styled.div`
+z-index: 999;
 position: fixed;
 width: 100%;
 height: 100%;
@@ -187,6 +188,28 @@ font-size: 2rem;
 @media ${breakpoints.mobile} {
   font-size: 0.9rem;
 }
+`;
+
+export const OtherDetails = styled.span`
+cursor: pointer;
+:hover {
+  color: #ff8ba7;
+}
+&.active{
+  background-color: orange;
+  border-radius: 20px;
+  padding: 7px;
+  :hover {
+    color:#fff;
+  }
+}
+`;
+
+export const DetailsCard = styled(CardItem)`
+background: 
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(to right, orange, pink) border-box;
+  border-radius: 1em;
 `;
 
 export const ColouredIcon = styled.span`

@@ -6,6 +6,9 @@ export const FETCH_ROOTS_SUCCESS = '@@internal/FETCH_ROOTS_SUCCESS';
 export const FETCH_RESOURCE = '@@internal/FETCH_RESOURCE';
 export const FETCH_RESOURCE_SUCCESS = '@@internal/FETCH_RESOURCE_SUCCESS';
 export const FETCH_RESOURCE_FAILURE = '@@internal/FETCH_RESOURCE_FAILURE';
+export const FETCH_RESOURCE_DETAIL = '@@internal/FETCH_RESOURCE_DETAIL';
+export const FETCH_RESOURCE_DETAIL_SUCCESS = '@@internal/FETCH_RESOURCE_DETAIL_SUCCESS';
+export const FETCH_RESOURCE_DETAIL_FAILURE = '@@internal/FETCH_RESOURCE_DETAIL_FAILURE';
 
 export enum RootKeys {
     Films = 'films',
@@ -46,26 +49,26 @@ export const RootAttributes : {[key : string] : RootIconSet} = {
 export const ResourceAttributes : {[key : string] : TableKeysSet} = {
 	[RootKeys.Films]: {
 		keys: ['title', 'episode_id', 'director', 'producer', 'release_date'],
-		otherInfoKey: ['characters'],
+		otherInfoKey: 'characters',
 	},
 	[RootKeys.People]: {
 		keys: ['height', 'mass', 'gender', 'birth_year', 'hair_color', 'skin_color'],
-		otherInfoKey: ['films'],
+		otherInfoKey: 'films',
 	},
 	[RootKeys.Planets]: {
 		keys: ['climate', 'diameter', 'terrain', 'population', 'rotation_period', 'orbital_period'],
-		otherInfoKey: ['residents'],
+		otherInfoKey: 'residents',
 	},
 	[RootKeys.Species]: {
 		keys: ['classification', 'language', 'average_lifespan', 'average_height', 'designation', 'skin_colors'],
-		otherInfoKey: ['people'],
+		otherInfoKey: 'people',
 	},
 	[RootKeys.Starships]: {
 		keys: ['model', 'manufacturer', 'cost_in_credits', 'passengers', 'cargo_capacity', 'crew'],
-		otherInfoKey: ['films'],
+		otherInfoKey: 'films',
 	},
 	[RootKeys.Vehicles]: {
 		keys: ['model', 'manufacturer', 'cost_in_credits', 'length', 'cargo_capacity', 'vehicle_class'],
-		otherInfoKey: ['films'],
+		otherInfoKey: 'films',
 	},
 };

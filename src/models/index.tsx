@@ -17,7 +17,7 @@ export interface RootIconSet {
 
 export interface TableKeysSet {
 	keys: string[];
-	otherInfoKey: string[];
+	otherInfoKey: string;
 }
 
 export type ResourceResult = {
@@ -34,7 +34,7 @@ export type Resource = {
 	results: ResourceResult[];
 };
 
-export type Payload = Root;
+export type Payload = Root | ResourceResult[] | ResourceResult | Error;
 
 export interface IReducer {
   type?: string;
@@ -59,4 +59,9 @@ export interface Istate {
     isLoading: boolean;
     error: Error;
   };
+  resourceDetail: {
+	payload: ResourceResult;
+    isLoading: boolean;
+    error: Error;
+  }
 }
