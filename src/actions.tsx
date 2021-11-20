@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import { FETCH_RESOURCE,
 	FETCH_RESOURCE_DETAIL,
 	FETCH_RESOURCE_DETAIL_FAILURE,
@@ -9,8 +8,17 @@ import { FETCH_RESOURCE,
 	FETCH_ROOTS_FAILURE,
 	FETCH_ROOTS_SUCCESS,
 } from './constants';
-import { FetchRootsFailure, FetchRootsRequest, FetchRootsSuccess, Root } from './models';
-import { getResource, getResourceDetail } from './api';
+import { FetchResourceDetailFailure,
+	FetchResourceDetailRequest,
+	FetchResourceDetailSuccess,
+	FetchResourceFailure,
+	FetchResourceRequest,
+	FetchResourceSuccess,
+	FetchRootsFailure,
+	FetchRootsRequest,
+	FetchRootsSuccess,
+	ResourceResult,
+	Root } from './models';
 
 // To fetch Roots
 export const fetchRoots = () : FetchRootsRequest => ({
@@ -28,27 +36,37 @@ export const fetchRootsFailure = (payload : Error) : FetchRootsFailure => ({
 });
 
 // To fetch Resources inside a Root
-export const fetchResource = (rootType: string) => async (dispatch: Dispatch) => {
-	dispatch({ type: FETCH_RESOURCE });
+export const fetchResource = (rootType: string) : FetchResourceRequest => ({
+	type: FETCH_RESOURCE,
+	rootType,
+});
 
-	try {
-		const resources = await getResource(rootType);
+export const fetchResourceSuccess = (payload: ResourceResult[]):
+FetchResourceSuccess => ({
+	type: FETCH_RESOURCE_SUCCESS,
+	payload,
+});
 
-		return dispatch({ type: FETCH_RESOURCE_SUCCESS, payload: resources });
-	} catch (error) {
-		return dispatch({ type: FETCH_RESOURCE_FAILURE, payload: error });
-	}
-};
+export const fetchResourceFailure = (payload : Error)
+: FetchResourceFailure => ({
+	type: FETCH_RESOURCE_FAILURE,
+	payload,
+});
 
 // To fetch Other Info inside a Resource
-export const fetchResourceDetail = (apiURL: string) => async (dispatch: Dispatch) => {
-	dispatch({ type: FETCH_RESOURCE_DETAIL });
+export const fetchResourceDetail = (apiURL: string) : FetchResourceDetailRequest => ({
+	type: FETCH_RESOURCE_DETAIL,
+	apiURL,
+});
 
-	try {
-		const resourceDetail = await getResourceDetail(apiURL);
+export const fetchResourceDetailSuccess = (payload: ResourceResult):
+FetchResourceDetailSuccess => ({
+	type: FETCH_RESOURCE_DETAIL_SUCCESS,
+	payload,
+});
 
-		return dispatch({ type: FETCH_RESOURCE_DETAIL_SUCCESS, payload: resourceDetail });
-	} catch (error) {
-		return dispatch({ type: FETCH_RESOURCE_DETAIL_FAILURE, payload: error });
-	}
-};
+export const fetchResourceDetailFailure = (payload : Error)
+: FetchResourceDetailFailure => ({
+	type: FETCH_RESOURCE_DETAIL_FAILURE,
+	payload,
+});

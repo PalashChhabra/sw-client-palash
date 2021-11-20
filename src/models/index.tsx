@@ -1,6 +1,14 @@
 import IonIcon from '@reacticons/ionicons';
 import React from 'react';
-import { FETCH_ROOTS, FETCH_ROOTS_FAILURE, FETCH_ROOTS_SUCCESS } from '../constants';
+import { FETCH_RESOURCE,
+	FETCH_RESOURCE_DETAIL,
+	FETCH_RESOURCE_DETAIL_FAILURE,
+	FETCH_RESOURCE_DETAIL_SUCCESS,
+	FETCH_RESOURCE_FAILURE,
+	FETCH_RESOURCE_SUCCESS,
+	FETCH_ROOTS,
+	FETCH_ROOTS_FAILURE,
+	FETCH_ROOTS_SUCCESS } from '../constants';
 
 export type Root = {
   films: string;
@@ -77,5 +85,35 @@ export type FetchRootsSuccess = {
 
 export type FetchRootsFailure = {
   type: typeof FETCH_ROOTS_FAILURE;
+  payload: Error;
+};
+
+export interface FetchResourceRequest {
+  type: typeof FETCH_RESOURCE;
+  rootType: string;
+}
+
+export type FetchResourceSuccess = {
+  type: typeof FETCH_RESOURCE_SUCCESS;
+  payload: ResourceResult[];
+};
+
+export type FetchResourceFailure = {
+  type: typeof FETCH_RESOURCE_FAILURE;
+  payload: Error;
+};
+
+export interface FetchResourceDetailRequest {
+  type: typeof FETCH_RESOURCE_DETAIL;
+  apiURL: string;
+}
+
+export type FetchResourceDetailSuccess = {
+  type: typeof FETCH_RESOURCE_DETAIL_SUCCESS;
+  payload: ResourceResult;
+};
+
+export type FetchResourceDetailFailure = {
+  type: typeof FETCH_RESOURCE_DETAIL_FAILURE;
   payload: Error;
 };

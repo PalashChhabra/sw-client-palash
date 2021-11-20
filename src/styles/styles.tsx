@@ -89,6 +89,13 @@ box-sizing: border-box;
       fill: #fff;
     }
 }
+.loadingSpinner {
+  color: orange;
+  margin-top: 50px;
+  margin-left: 80px;
+  height: 70px;
+  width: 70px;
+}
 `;
 
 export const CardItem = styled.div`

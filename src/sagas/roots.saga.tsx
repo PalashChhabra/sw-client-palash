@@ -1,4 +1,5 @@
 import { FETCH_ROOTS } from '../constants';
+import { Root } from '../models';
 import { getRoots } from '../api';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { fetchRootsFailure, fetchRootsSuccess } from '../actions';
@@ -6,9 +7,10 @@ import { fetchRootsFailure, fetchRootsSuccess } from '../actions';
 function *fetchRootsSaga() {
 	try {
 		const response = yield call(getRoots);
+		const responseData: Root = response.data;
 
 		yield put(
-			fetchRootsSuccess(response.data),
+			fetchRootsSuccess(responseData),
 		);
 	} catch (e) {
 		yield put(

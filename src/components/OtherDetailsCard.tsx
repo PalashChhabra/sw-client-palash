@@ -61,7 +61,7 @@ const OtherDetailsCard: FC<Props> = ({ showTable, url }) => {
 					onClick={toggle}
 				>{'Hide Info'}</Button>
 			</CardFooter>
-		</DetailsCard> : <></> : <Loader />
+		</DetailsCard> : <></> : <Loader onlySpinner/>
 		}</div>
 	</>);
 };

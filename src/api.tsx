@@ -7,17 +7,7 @@ const clientURL: string = 'https://swapi.dev/api/';
 export const getRoots = async () => axios.get<Root>(clientURL);
 
 // gets resources for a particular Type
-export const getResource = async (root: string): Promise<Resource> => {
-	const res = await fetch(`${clientURL}${root}/`);
-	const resp = await res.json();
-
-	return resp.results;
-};
+export const getResource = async (root: string) => axios.get<Resource>(`${clientURL}${root}/`);
 
 // gets resource Details for a provided endpoint
-export const getResourceDetail = async (apiUrl: string): Promise<ResourceResult> => {
-	const res = await fetch(`${apiUrl}`);
-	const resp = await res.json();
-
-	return resp;
-};
+export const getResourceDetail = async (apiUrl: string) => axios.get<ResourceResult>(`${apiUrl}`);
