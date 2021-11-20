@@ -1,6 +1,6 @@
 # Starwars App Challenge
 
-Watch Live at : [Star Wars API](https://swapi.dev/)
+Watch Live at : [Palash - Starwars](palash-starwars.netlify.app) [![Netlify Status](https://api.netlify.com/api/v1/badges/c458d735-f23e-46e6-9386-51f5c8048f3b/deploy-status)](https://app.netlify.com/sites/palash-starwars/deploys)
 
 Simple React app Frontend for ingesting the [Star Wars API](https://swapi.dev/).
 ## How to setup
