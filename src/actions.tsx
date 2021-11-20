@@ -7,20 +7,25 @@ import { FETCH_RESOURCE,
 	FETCH_RESOURCE_SUCCESS,
 	FETCH_ROOTS,
 	FETCH_ROOTS_FAILURE,
-	FETCH_ROOTS_SUCCESS } from './constants';
-import { getResource, getResourceDetail, getRoots } from './api';
+	FETCH_ROOTS_SUCCESS,
+} from './constants';
+import { FetchRootsFailure, FetchRootsRequest, FetchRootsSuccess, Root } from './models';
+import { getResource, getResourceDetail } from './api';
 
 // To fetch Roots
-export const fetchRoots = () => async (dispatch: Dispatch) => {
-	dispatch({ type: FETCH_ROOTS });
-	try {
-		const root = await getRoots();
+export const fetchRoots = () : FetchRootsRequest => ({
+	type: FETCH_ROOTS,
+});
 
-		return dispatch({ type: FETCH_ROOTS_SUCCESS, payload: root });
-	} catch (error) {
-		return dispatch({ type: FETCH_ROOTS_FAILURE, payload: error });
-	}
-};
+export const fetchRootsSuccess = (payload: Root) : FetchRootsSuccess => ({
+	type: FETCH_ROOTS_SUCCESS,
+	payload,
+});
+
+export const fetchRootsFailure = (payload : Error) : FetchRootsFailure => ({
+	type: FETCH_ROOTS_FAILURE,
+	payload,
+});
 
 // To fetch Resources inside a Root
 export const fetchResource = (rootType: string) => async (dispatch: Dispatch) => {

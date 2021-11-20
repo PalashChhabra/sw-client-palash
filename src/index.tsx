@@ -6,12 +6,12 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ResourceDetails from './pages/ResourceDetails';
-import createStore from './store';
+import store from './store';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const routes = (
-	<Provider store={createStore()}>
+	<Provider store={store}>
 		<Router>
 			<GlobalStyle />
 			<App>

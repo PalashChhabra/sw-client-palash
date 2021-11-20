@@ -1,5 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import React from 'react';
+import { FETCH_ROOTS, FETCH_ROOTS_FAILURE, FETCH_ROOTS_SUCCESS } from '../constants';
 
 export type Root = {
   films: string;
@@ -65,3 +66,16 @@ export interface Istate {
     error: Error;
   }
 }
+export interface FetchRootsRequest {
+  type: typeof FETCH_ROOTS;
+}
+
+export type FetchRootsSuccess = {
+  type: typeof FETCH_ROOTS_SUCCESS;
+  payload: Root;
+};
+
+export type FetchRootsFailure = {
+  type: typeof FETCH_ROOTS_FAILURE;
+  payload: Error;
+};

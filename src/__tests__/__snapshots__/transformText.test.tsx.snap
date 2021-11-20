@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should tranform data Keys and replace underscores expect (orbital_period to match Orbital period 1`] = `"Orbital period"`;
+
+exports[`should tranform data Keys and replace underscores expect (rotation_period to match Rotation period 1`] = `"Rotation period"`;
+
+exports[`should tranform data Keys and replace underscores expect (surface_water to match Surface water 1`] = `"Surface water"`;
