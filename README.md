@@ -1,47 +1,45 @@
-# Star Wars Client
+# Starwars App Challenge
 
-This is a simple React app for ingesting the [Star Wars API](https://swapi.dev/).
+Watch Live at : [Star Wars API](https://swapi.dev/)
 
-## Build setup
+Simple React app Frontend for ingesting the [Star Wars API](https://swapi.dev/).
+## How to setup
 
-```bash
-# install dependencies
-yarn
-
-# start server
-yarn start
-
-# check tests ✅
-yarn test
 ```
-
+Step : 1 - Clone the repository and change directory to root (Node >=10 should be installed)
+Step : 2 - Install node modules using npm i or yarn install
+Step : 3 - Serve the app locally using npm start or yarn start
+Step : 4 - Run test cases using npm run test
+```
 ## Overview
 
-As this is a simple consume website for the Star Wars API - there are a few things a user is probably going to want to do.
+This is a simple website for the Star Wars API with the following features :
 
 1. View all root types, and the resources inside them
 2. Click though and see a detailed breakdown of the information on each resource type
-3. Easily access other linked resources
-4. Favorite a resource type - this must persist after page refresh however it doesn't need to be stored on a server
+4. Favorite a resource type using local storage
+## Screenshots
 
-## Requirements
+![](./src/assets/screenshots/Home.png)
+![](./src/assets/screenshots/Details.png)
 
-- The UI has to be responsive
-- There must be test coverage using Jest
-- Loading states while the data is being fetched
-- As important as the feature set is, keeping coding standards and code consistency is key
-- Use redux sagas
-- Add type support by migrating to TypeScript
+## Technologies used
 
-## Design
+- Typescript for type checking
+- React for Front-end
+- Redux for state management
+- Redux Saga as a middle ware
+- Styled components for styling
 
-- A good understanding of basic UX principles, and showing that user flow and key actions have been thought through throughly.
-- This is Star Wars isn't it? Have some fun! 🚀 👽
+## Testing
 
-## Brownie points
+Unit-testing for utils done with Jest
 
-- Inline resource filtering 🕵🏻‍♀️
-- Animations on the loading states ⚛️
-- Very clean and modular styled components 🛀
+```
+npm run test
+```
+## Proposed improvements
 
-Have fun, we look forward to seeing what you've come up with.
+- Fully responsive mobile view (using multiple breakpoints)
+- increase unit & integration testing coverage
+- add more type checks
