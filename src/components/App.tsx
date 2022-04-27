@@ -1,5 +1,5 @@
 import { APPROUTES } from '../app-routes/routes';
-import { ReactComponent as CuvvaLogo } from '../assets/icons/cuvva.svg';
+import { ReactComponent as BrandLogo } from '../assets/icons/logo.svg';
 import { Link } from 'react-router-dom';
 import { Container, NavItem, NavbarBrand } from 'reactstrap';
 import { LayoutWrapper, NavWrapper } from '../styles/styles';
@@ -11,9 +11,9 @@ interface Props {
 const App: FC<Props> = ({ children }) => (
 	<LayoutWrapper>
 		<NavWrapper>
-			<NavbarBrand href={APPROUTES.Home}> <CuvvaLogo /></NavbarBrand>
+			<NavbarBrand href={APPROUTES.Home}> <BrandLogo /></NavbarBrand>
 			<Link to={{ pathname: APPROUTES.Home }}>{'Home'}</Link>
-			<NavItem>
+			<NavItem style={{ listStyleType: 'none' }}>
 				<a
 					href="https://palashchhabra.com"
 					rel="noopener noreferrer"
@@ -23,7 +23,7 @@ const App: FC<Props> = ({ children }) => (
 		</NavWrapper>
 
 		<Container className={'p-5'}
-			fluid={'true'}
+			fluid
 		>{children}</Container>
 	</LayoutWrapper>
 );

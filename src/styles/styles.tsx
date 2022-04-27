@@ -35,7 +35,7 @@ text-transform: capitalize;
 `;
 
 export const NavWrapper = styled.nav`
-background: rgb(5, 2, 36);
+background-color: #fff;
 position: sticky;
 top: 0;
 left: 0;
@@ -55,12 +55,9 @@ svg {
     :hover {
       transform: scale(1.05);
     }
-    path {
-      fill: #fff;
-    }
 }
 a {
-    color: #fff
+    color: #0f2c65
 }
 a:hover {
     color: #ff8ba7;
